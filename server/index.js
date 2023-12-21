@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const userRoute = require("./routes/userRoute");
+const chatRoute = require("./routes/chatRoute");
 
 const app = express(); // create express app
 require("dotenv").config();
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/users", userRoute);
+app.use("/api/chats", chatRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome API Mamco-chatApp");
